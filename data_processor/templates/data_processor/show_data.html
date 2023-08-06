@@ -1,0 +1,30 @@
+<!-- data_processor/show_data.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Processed Data</title>
+</head>
+<body>
+    <h1>Processed Data</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>URL</th>
+                <th>Scanned for Virus</th>
+                <th>Duplicated</th>
+                <th>Processed</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for url in processed_urls %}
+            <tr>
+                <td>{{ url.url }}</td>
+                <td>{{ url.is_scanned_for_virus }}</td>
+                <td>{{ url.is_duplicated }}</td>
+                <td>{{ url.is_processed }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!-- data_processor/output_data.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Processed Data</title>
+</head>
+<body>
+    <h1>Processed Data</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>URL</th>
+                <th>Scanned for Virus</th>
+                <th>Duplicated</th>
+                <th>Processed</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for processed_url  in processed_urls %}
+            <tr>
+                <td>{{ processed_url.url }}</td>
+                <td>{{ processed_url.is_scanned_for_virus }}</td>
+                <td>{{ processed_url.is_duplicated }}</td>
+                <td>{{ processed_url.is_processed }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'input_data' %}">Back to Input Data</a>
+</body>
+</html>
